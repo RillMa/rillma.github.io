@@ -15,89 +15,13 @@
 <meta property="og:site_name" content="SuperMa&#39;s Blog">
 <meta property="og:description" content="C++基础入门：7 指针7.1 指针的基本概念指针的作用：可以通过指针间接访问内存  内存编号是从0开始的，一般用十六进制数字表示 可以利用指针变量保存地址  7.2 指针变量的定义和使用指针变量定义语法： 数据类型 * 变量名; 7.3 指针所占内存空间在32位操作系统下：占用4个字节空间，64位下占8个字节空间 7.4 空指针和野指针 空指针：指针变量指向内存中编号为0的空间 用图：初始化指针">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/1e3ITFftOgxUADk.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/RE342FXuC7bTWkK.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/OrFz3l9s5aSIJb7.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/QiJTex8hpRjyNHc.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/2wGW5YNhBflzJ8D.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/p3fmVGWCbOIdjRt.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/zDPbqWegKdTYjV1.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/xcpenUYFwAKVdyv.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/hdzxyqVKfb7TNYk.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/PVyxYrfgjTu4peU.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/by9tvjxJZk7DRaK.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ake6qFhmVIBHOp5.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/WfHOF6o2qpkAKyZ.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ecxaE1LJ7SWPRrG.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/vnFx4cBDH61RP37.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/5V8v7eniHIotNP4.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/DtaBUyqZwTmo8vV.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/oMg5Z9drW1kjTyS.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/4pqsKB9F86SLUrb.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/fTe5FKPHMtYAyRm.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/t4Is953pzJvf6we.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/GiodebNtTlWqXSH.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/kPNFZxVOeRKBiEn.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/bpYQN8RUM9iBhKL.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/DVCOBewFqy42zAx.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/LQy7aS46nTxk9i2.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/YkypKHt5hlOdVAP.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/PzlBvAxwKSbYRpV.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/vpIZiG5h2RPTdNc.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ml4epvCztnBHkI6.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/tUnv4POsW1A2dLz.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/6gSAt5w3v79Dy4C.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/FExo9rGTbzsjOKk.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/kAarfxG6M7sUXol.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/hLdBROafsxSCT78.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/pBbYixHgvNeQL7M.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/fJFpCTUvsqN61V4.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/LWcAP5R3mBMhITt.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Yvhb4ePCy9MWxgf.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/IXZtzC1xkVY4fSe.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/SfJnRNCTqXua4Zh.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/rXVgHQ8MS1mLqnA.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Mu3gF8zx4jGpVCU.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/lG7cmuJKOSrEUhz.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/yesJTVOQdZUwDE3.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ZeOTW4R9psvYizS.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/IWgL8KFl4A31e7k.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/FtWMqlNo4GzyQIn.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/kEAyuYacWQTRxXq.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/U9tKsb8O6vHefh4.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/RSh1OWl5NdKoIcn.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/I59GeZgFBl3ObSq.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/WUK2DutxNSvYl5f.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/X9E2GLCwdAWaQij.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/cGP8lXmx3SjNH1t.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/XzYBtDk4IhZmfEb.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/hEezI9bYTxG4qJy.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/hscHpqbNidgT1MD.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/gfsZ1mPiHhYB3Ia.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/iPOxBrKkbwgCTaX.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/7ZERmzO8w4Jhucj.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/UcYh2geqzGCmDaS.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ixTFQgLUqDkydSn.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/ayA3YEIHLWifsoZ.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/T4Abq1UyXRj5hDV.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/T4Abq1UyXRj5hDV.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/oUEuiLa5V7P8eBQ.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/7LRSWcY62gCUpkh.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/OtyoQeTmEq3Mr6f.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/VItxi5ypQUomb4g.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/FSKe3mYcf6QPLiR.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/6FyU3R51NgZxluK.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Nu1LIqbjETfgF4O.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/tPpk8nHyuVlDO5q.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/foWdAn17UHZ6Twj.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Cg5Zc3iyNUn6Fmx.png">
-<meta property="og:image" content="https://s2.loli.net/2022/07/17/Cg5Zc3iyNUn6Fmx.png">
+<meta property="og:image" content="https://rillma.github.io/img/C++Note.jpeg">
 <meta property="article:published_time" content="2022-07-17T14:26:55.000Z">
-<meta property="article:modified_time" content="2022-07-25T16:42:12.370Z">
+<meta property="article:modified_time" content="2022-08-14T13:32:42.219Z">
 <meta property="article:author" content="SuperMa">
 <meta property="article:tag" content="ѧϰ�����ԣ�C++��Unreal����Ϸ����">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/07/17/1e3ITFftOgxUADk.png">
+<meta name="twitter:image" content="https://rillma.github.io/img/C++Note.jpeg">
 
     <meta name="description" content="Everything deserves to be recorded">
 
@@ -408,7 +332,7 @@
         <!-- action button -->
         <div class="text-center">
             <a href="mailto:664468131@qq.com" class="trm-btn">
-                联系我
+                Contact Me
                 <i class="far fa-envelope"></i>
             </a>
         </div>
@@ -1366,7 +1290,7 @@
                         <div class="col-lg-12">
                             <!-- title -->
                             <h5 class="trm-mb-40 trm-title-with-divider">
-                                其他文章
+                                Other Articles
                                 <span data-number="02"></span>
                             </h5>
                         </div>
@@ -1374,7 +1298,7 @@
                             <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
         <a href="/2022/07/26/%E9%98%BF%E9%87%8C%E4%BA%91%E9%AA%8C%E8%AF%81%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E5%A4%B1%E8%B4%A5/" class="trm-cover-frame trm-anima-link">
-            <img src="/img/block.jpg" alt="cover">
+            <img src="/img/AliyunPic.jpeg" alt="cover">
         </a>
         <div class="trm-card-descr">
             <div class="trm-label trm-category trm-mb-20">
@@ -1407,12 +1331,12 @@
                             <div class="col-lg-6">
     <div class="trm-blog-card trm-scroll-animation" data-scroll data-scroll-offset="40">
         <a href="/2022/06/19/hello-world/" class="trm-cover-frame trm-anima-link">
-            <img src="/img/block.jpg" alt="cover">
+            <img src="/img/HelloWorld.jpeg" alt="cover">
         </a>
         <div class="trm-card-descr">
             <div class="trm-label trm-category trm-mb-20">
                 <a href=" #.">
-                    未分类
+                    unclassified
                 </a>
             </div>
             <h5>
@@ -1452,9 +1376,9 @@
         </span>
     </div>
     <div class="trm-label">
-        博客已萌萌哒运行:
+        The blog has been lovely to run:
         <span id="since" class="trm-accent-color"></span>
-        天
+        day
     </div>
 </footer>
 <script>
