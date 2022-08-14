@@ -6,7 +6,7 @@
   <link href="https://rillma.github.io/atom.xml" rel="self"/>
   
   <link href="https://rillma.github.io/"/>
-  <updated>2022-08-14T13:51:47.401Z</updated>
+  <updated>2022-08-14T14:56:14.251Z</updated>
   <id>https://rillma.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://rillma.github.io/2022/08/14/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/"/>
     <id>https://rillma.github.io/2022/08/14/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95%E5%88%B7%E9%A2%98%E6%80%BB%E7%BB%93/</id>
     <published>2022-08-14T13:49:29.786Z</published>
-    <updated>2022-08-14T13:51:47.401Z</updated>
+    <updated>2022-08-14T14:56:14.251Z</updated>
     
     <content type="html"><![CDATA[<h1 id="代码随想录刷题总结："><a href="#代码随想录刷题总结：" class="headerlink" title="代码随想录刷题总结："></a>代码随想录刷题总结：</h1><p><strong>还需要反复做的题目：</strong></p><p>T96.不同的二叉搜索树、T416. 分割等和子集、T474. 一和零、T139. 单词拆分、T213. 打家劫舍 II、T337.打家劫舍III、T123. 买卖股票的最佳时机 III、T309. 最佳买卖股票时机含冷冻期、T53. 最大子数组和（dp和贪心两种方法可以再做做）、T115. 不同的子序列</p><h2 id="一、动态规划"><a href="#一、动态规划" class="headerlink" title="一、动态规划"></a>一、动态规划</h2><p><strong>动态规划做题的关键点：</strong></p><ol><li>对于想不出来的问题，不要只纠结于<strong>i</strong>和<strong>i</strong>的前一个状态，有时候还有可能是前<strong>j</strong>个状态推导出i的状态，即<strong>双层for循环</strong></li><li>一维dp数组想不出来的问题，可以考虑考虑用二维dp数组</li></ol><h3 id="1-基础题目："><a href="#1-基础题目：" class="headerlink" title="1.基础题目："></a>1.基础题目：</h3><ul><li>像<strong>爬楼梯类</strong>的题目，有n级台阶，当n &#x3D; 0时，算作0级台阶，后面再才是1 2 3…级台阶，所以<strong>创建dp数组时大小要设为n + 1</strong>；上台阶需要花费时也一样，只不过题目是把开头和结尾元素往后移了，实际上差不多的</li><li>像<strong>整数划分</strong>和<strong>不同的二叉搜索树</strong>类的题目，并不是靠前面1个或者2个3个这种具体数量的状态来判断当前的状态了，而是<strong>根据前面所有的状态来判断当前状态</strong>，因此写的一般都是双重for循环，内层从1遍历到当前的i</li></ul><p><img src="https://superma-bucket.oss-cn-beijing.aliyuncs.com/img/image-20220807153000835.png" alt="image-20220807153000835"></p><h3 id="2-背包问题："><a href="#2-背包问题：" class="headerlink" title="2.背包问题："></a>2.背包问题：</h3><p><strong>递推公式</strong>：</p><table><thead><tr><th>题目问法</th><th>递推公式</th><th>题目</th></tr></thead><tbody><tr><td>问能否能装满背包（或者最多装多少）</td><td>dp[j] &#x3D; max(dp[j], dp[j - nums[i]] + nums[i])</td><td>T416.分割等和子集、T1049.最后一块石头的重量II</td></tr><tr><td>问装满背包有几种方法</td><td>dp[j] +&#x3D; dp[j - nums[i]]</td><td>T494.目标和、T518. 零钱兑换 II、T377.组合总和Ⅳ、T70. 爬楼梯进阶版</td></tr><tr><td>问背包装满最大价值</td><td>dp[j] &#x3D; max(dp[j], dp[j - weights[i]] + values[i])</td><td>T474.一和零</td></tr><tr><td>问装满背包所有物品的最小个数</td><td>dp[j] &#x3D; min(dp[j], dp[j - coins[i]] + 1)</td><td>T322.零钱兑换、T279.完全平方数</td></tr></tbody></table><p><strong>遍历顺序</strong>：</p><table><thead><tr><th>背包问题</th><th>遍历顺序</th><th>题目</th></tr></thead><tbody><tr><td>01背包（二维）</td><td>先遍历谁都行，内层正序遍历</td><td>01背包二维理论</td></tr><tr><td>01背包（一维）</td><td>只能先遍历背物体，后遍历背包，且背包倒序遍历（只能取一次）</td><td>01背包一维理论</td></tr><tr><td>完全背包（求组合数）</td><td>先遍历物体，后遍历背包，正序遍历（可取出多次）</td><td>T518. 零钱兑换 II</td></tr><tr><td>完全背包（求排列数）</td><td>先遍历背包，后遍历物体，正序遍历（可取出多次）</td><td>T377.组合总和Ⅳ、T70. 爬楼梯进阶版</td></tr><tr><td>完全背包（求最小数）</td><td>先遍历谁都行，正序遍历</td><td>T322.零钱兑换、T279.完全平方数</td></tr></tbody></table><ul><li><p>01背包</p><ul><li><p>背包问题里面，递推公式往往是<strong>dp[j - 数组中的某个值]<strong>，所以在内层循环的时候要注意，</strong>j 的范围是 &gt; “数组中的某个值”</strong>，而不是 &gt; 0</p></li><li><p><strong>分割等和子集</strong>需要进行变通，要求的target &#x3D; left - right，两部分总和sum &#x3D; left + right，相加就得到<strong>left &#x3D; (sum + target) &#x2F; 2</strong>，这样就转化成了求left的01背包问题</p></li><li><p>一和零其实是两个背包的01背包问题，只不过中间还需要记录一下0和1的数量</p><ul><li>假如题目改一下，把0全部去掉，只限制1的个数，那么就变成了求只包含1的最大子集长度，就很容易看出来是01背包了</li></ul></li></ul></li><li><p>完全背包</p><ul><li>根据上面总结的表格来看</li><li><strong>单词拆分</strong>，要把原wordDict放到set里面，这样才能实现对子串的查找，主要就是找 i 到 j 的子串是否在字典里，如果在而且 i 前面的子串也在，那么j前面的这个长串都能由wordDict构成</li></ul></li></ul><h3 id="3-打家劫舍"><a href="#3-打家劫舍" class="headerlink" title="3.打家劫舍"></a>3.打家劫舍</h3><ul><li>打家劫舍II：成环了之后，这里没必要再用一个数组，就用原来的就行，只不过头尾不能都偷之后，就要把头部除去或者把尾部除去，两部分分开考虑，最后取得最大值就行</li><li>打家劫舍III：属于一个二叉树上的递归题目，不能再用DP的惯用思想了，依然是遍历，遍历的时候记录节点偷还是不偷两者的值，再把左右的值返回给中间节点，让中间的节点进行偷和不偷的取舍</li></ul><h3 id="4-股票问题"><a href="#4-股票问题" class="headerlink" title="4.股票问题"></a>4.股票问题</h3><ul><li>这类问题要根据不同的题意，把当天的状态都列举出来，有可能是无买卖状态、当天是买入状态、当天是卖出状态、当天是第一次买入状态、当天是第一次卖出状态、当天是第n次买入或者卖出状态、当天是冷冻期…等等这些状态都要想全；只有把当天的几个状态确定了，后面的递推公式和初始化才好写</li></ul><h3 id="5-子序列问题"><a href="#5-子序列问题" class="headerlink" title="5.子序列问题"></a>5.子序列问题</h3><ul><li><p><strong>最长不连续递增子序列</strong>和<strong>最长连续递增子序列</strong>：</p><ul><li>不连续递增子序列的跟前0-i 个状态有关</li><li>连续递增的子序列只跟前一个状态有关</li></ul></li><li><p><strong>最长连续公共子数组</strong>和<strong>最长不连续公共子序列</strong>：</p><ul><li>连续的子数组只有当前元素相等时和左上角有关系，如果不相等就不用管，因为假如当前值取了左边和上边的最大值，再到右下角元素相等的时候，它把这个值+1，就有错误，因为它不连续，所以就不应该这样操作</li><li>对于不连续的公共子序列，不相等时就可以采用上面说的取最大值的方法了，要是相等，还是要把左上角的值拿来再+1</li></ul></li><li><p><strong>编辑距离问题：</strong></p><ul><li>要清楚dp表示的是操作数</li><li>如果当前字符相同，那么两个字符串的这个字符就可以忽略，dp就要看左上角的值</li><li>如果当前字符不相同，<ul><li>要么word1删除这个字符，那么dp就是上方的dp值+1</li><li>要么word1增加字符，实际就是word2删除字符，那么dp就是左边的dp值+1</li><li>要么word1或者word2替换字符，那么dp值就是左上角的值+1</li></ul></li></ul></li><li><p><strong>回文子串和回文子序列：</strong></p><ul><li>他们都需要一个<strong>从前往后的i</strong>和<strong>从后往前的j</strong>，看i到j是否是回文串，或者看i到j中最长的回文串是多少</li><li>回文子串：如果当前字母不一样，那肯定不是回文串，就不用管；如果当前字母一样，那么就判断i和j两个下标之间是不是就差了0或者1，或者看i + 1到j - 1的子串是不是回文串；最后统计回文串数目就行</li><li>最长回文子序列：如果当前字母一样，那就看i + 1到j - 1的最长回文子串有多长；如果当前字母不一样，就看去掉i或者去掉j后他们之前构成的回文子串有多大，取最大的即可</li></ul></li></ul>]]></content>
     
@@ -33,6 +33,8 @@
       
     
     
+    
+    <category term="Study" scheme="https://rillma.github.io/categories/Study/"/>
     
     
   </entry>
@@ -86,7 +88,7 @@
     <link href="https://rillma.github.io/2022/06/19/hello-world/"/>
     <id>https://rillma.github.io/2022/06/19/hello-world/</id>
     <published>2022-06-19T09:28:59.740Z</published>
-    <updated>2022-08-14T13:34:35.602Z</updated>
+    <updated>2022-08-14T14:56:23.658Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
@@ -97,6 +99,8 @@
       
     
     
+    
+    <category term="Record" scheme="https://rillma.github.io/categories/Record/"/>
     
     
   </entry>
